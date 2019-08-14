@@ -1,0 +1,25 @@
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin transition($transition: .3s) {
+    -moz-transition:    all $transition ease;
+    -o-transition:      all $transition ease;
+    -webkit-transition: all $transition ease;
+    -ms-transition: 		all $transition ease;
+    transition:         all $transition ease;
+}
+
+@mixin gradient-background(){
+	background: #00bbfc;
+	background: -moz-linear-gradient(-45deg, #00bbfc 0%, #155983 100%);
+	background: -webkit-gradient(left top, right bottom, color-stop(0%, #00bbfc), color-stop(100%, #155983));
+	background: -webkit-linear-gradient(-45deg, #00bbfc 0%, #155983 100%);
+	background: -o-linear-gradient(-45deg, #00bbfc 0%, #155983 100%);
+	background: -ms-linear-gradient(-45deg, #00bbfc 0%, #155983 100%);
+	background: linear-gradient(135deg, #00bbfc 0%, #155983 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00bbfc', endColorstr='#155983', GradientType=1 );
+}
