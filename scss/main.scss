@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,800,900|Ubuntu&display=swap');
 @import 'mixings';
+@import 'animations';
 
 :root {
   --link-color: #222;
@@ -12,6 +13,28 @@ body {
 
 a {
   color: var(--link-color);
+}
+
+.owl-theme {
+  .owl-dots .owl-dot {
+    outline: none !important;
+    span {
+      background: rgba(112, 112, 112, 0.4);
+    }
+    &.active {
+      span {
+        background: #14628e;
+      }
+    }
+  }
+  .owl-drag .owl-item {
+    -ms-touch-action: auto;
+    touch-action: auto;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
 }
 
 nav {
@@ -36,6 +59,10 @@ nav {
       li {
         margin: 0 1rem;
         text-transform: uppercase;
+        opacity: 0;
+        animation: fadeUp 0.8s ease forwards;
+        animation-delay: var(--delay);
+        position: relative;
         a {
           font-weight: 500;
           text-transform: uppercase;
@@ -50,6 +77,8 @@ nav {
   #logo {
     display: inline-block;
     width: max-content;
+    animation: fadeUp 0.4s ease forwards;
+    animation-delay: var(--delay);
   }
   #menu-trigger,
   #close-menu {
@@ -199,10 +228,17 @@ section#info {
 section#highlights {
   padding: 6rem 0;
   .highlight {
-    height: 60vh;
+    height: calc(var(--vh, 1vh) * 60);
     position: relative;
     overflow: visible;
     margin-bottom: 12rem;
+    transform: translateY(1rem);
+    opacity: 0;
+    @include transition(0.5s);
+    &.animate {
+      transform: translateY(0);
+      opacity: 1;
+    }
     &:last-child {
       margin-bottom: 5rem;
     }
@@ -283,7 +319,7 @@ section#highlights {
 }
 
 #products {
-  min-height: 30vh;
+  min-height: calc(var(--vh, 1vh) * 30);
   padding: 8rem 0 3rem;
   .product-list {
     margin: 4rem 0;
@@ -371,7 +407,7 @@ section#highlights {
 }
 
 #contact {
-  min-height: 30vh;
+  min-height: calc(var(--vh, 1vh) * 30);
   padding: 10rem 0 3rem;
   .info {
     margin: 4rem 0;
@@ -393,7 +429,7 @@ section#highlights {
     }
     iframe {
       width: 100%;
-      height: 50vh;
+      height: calc(var(--vh, 1vh) * 50);
     }
   }
 }
@@ -478,6 +514,7 @@ body.compensate-for-scrollbar {
           position: relative;
           transform: translateX(-0.5rem);
           opacity: 0;
+          animation: none;
           @include transition;
           transition-delay: var(--delay);
           a {
@@ -510,7 +547,7 @@ body.compensate-for-scrollbar {
       display: block;
     }
     &.show-menu {
-      height: 100vh;
+      height: calc(var(--vh, 1vh) * 100);
       width: 100vw;
       .links {
         height: 100%;
@@ -534,7 +571,7 @@ body.compensate-for-scrollbar {
     }
   }
   #home-section {
-    height: calc(100vh - 4.2rem);
+    height: calc((var(--vh, 1vh) * 100) - 4.2rem);
     .owl-carousel.home-slider {
       overflow: hidden;
       height: 100%;
@@ -549,11 +586,19 @@ body.compensate-for-scrollbar {
         line-height: 1.1;
         color: #222;
         margin: 0.5rem 0rem 1rem;
+        animation: fadeUp 0.8s ease forwards;
+        animation-delay: 0.2s;
+        position: relative;
+        opacity: 0;
       }
       .slider-item .slider-text p {
         color: #222;
         line-height: 1.2;
         font-size: 1rem;
+        animation: fadeUp 0.8s ease forwards;
+        animation-delay: 0.3s;
+        position: relative;
+        opacity: 0;
       }
       .slider-item .slider-text .subheading {
         font-size: 0.7rem;
@@ -562,6 +607,10 @@ body.compensate-for-scrollbar {
         -webkit-background-clip: unset;
         -webkit-text-fill-color: unset;
         background: none;
+        animation: fadeUp 0.8s ease forwards;
+        animation-delay: 0.1s;
+        position: relative;
+        opacity: 0;
       }
       .slider-item .slider-text .one-third {
         width: 100%;
@@ -574,6 +623,7 @@ body.compensate-for-scrollbar {
       }
       .owl-dots .owl-dot {
         background: rgba(112, 112, 112, 0.4);
+        outline: none !important;
         &.active {
           background: #14628e;
         }
@@ -625,12 +675,12 @@ body.compensate-for-scrollbar {
           font-size: 0.8rem;
         }
         .title {
-          font-size: 1.5rem;
+          font-size: 1.3rem;
           margin: 0.5rem 0 0.7rem;
         }
         .text {
           width: 100%;
-          font-size: 1.1rem;
+          font-size: 1rem;
           line-height: 1.2;
         }
         a {
@@ -679,6 +729,23 @@ body.compensate-for-scrollbar {
         .name {
           font-size: 1.1rem;
         }
+      }
+    }
+  }
+
+  #contact {
+    padding: 1rem;
+    .info {
+      margin: 2rem 0;
+      grid-template-columns: auto;
+      grid-template-areas: 'map' 'info';
+      grid-row-gap: 2rem;
+      & > ul {
+        grid-area: info;
+      }
+      & > iframe {
+        grid-area: map;
+        height: calc(var(--vh, 1vh) * 40);
       }
     }
   }

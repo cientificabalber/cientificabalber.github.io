@@ -29,4 +29,32 @@ $(function() {
   $('#close-menu').click(function() {
     $('nav').removeClass('show-menu');
   });
+
+  setVh();
 });
+
+const observer = new IntersectionObserver(
+  (entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.intersectionRatio > 0) {
+        entry.target.classList.add('animate');
+        observer.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: [0.3] }
+);
+
+const highlights = document.querySelectorAll('.highlight');
+highlights.forEach(highlight => {
+  observer.observe(highlight);
+});
+
+window.addEventListener('resize', () => {
+  setVh();
+});
+
+function setVh() {
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+}

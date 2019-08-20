@@ -1,4 +1,18 @@
 @import url("https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,800,900|Ubuntu&display=swap");
+.fade-up {
+  animation: fadeUp 0.8s ease;
+}
+
+@keyframes fadeUp {
+  0% {
+    transform: translateY(0.5rem);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
 :root {
   --link-color: #222;
 }
@@ -10,6 +24,24 @@ body {
 
 a {
   color: var(--link-color);
+}
+
+.owl-theme .owl-dots .owl-dot {
+  outline: none !important;
+}
+.owl-theme .owl-dots .owl-dot span {
+  background: rgba(112, 112, 112, 0.4);
+}
+.owl-theme .owl-dots .owl-dot.active span {
+  background: #14628e;
+}
+.owl-theme .owl-drag .owl-item {
+  -ms-touch-action: auto;
+  touch-action: auto;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 nav {
@@ -35,6 +67,10 @@ nav .links ul {
 nav .links ul li {
   margin: 0 1rem;
   text-transform: uppercase;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards;
+  animation-delay: var(--delay);
+  position: relative;
 }
 nav .links ul li a {
   font-weight: 500;
@@ -47,6 +83,8 @@ nav .links #quick-contact {
 nav #logo {
   display: inline-block;
   width: max-content;
+  animation: fadeUp 0.4s ease forwards;
+  animation-delay: var(--delay);
 }
 nav #menu-trigger,
 nav #close-menu {
@@ -211,10 +249,21 @@ section#highlights {
   padding: 6rem 0;
 }
 section#highlights .highlight {
-  height: 60vh;
+  height: calc(var(--vh, 1vh) * 60);
   position: relative;
   overflow: visible;
   margin-bottom: 12rem;
+  transform: translateY(1rem);
+  opacity: 0;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+section#highlights .highlight.animate {
+  transform: translateY(0);
+  opacity: 1;
 }
 section#highlights .highlight:last-child {
   margin-bottom: 5rem;
@@ -292,7 +341,7 @@ section#highlights .highlight .card a {
 }
 
 #products {
-  min-height: 30vh;
+  min-height: calc(var(--vh, 1vh) * 30);
   padding: 8rem 0 3rem;
 }
 #products .product-list {
@@ -384,7 +433,7 @@ section#highlights .highlight .card a {
 }
 
 #contact {
-  min-height: 30vh;
+  min-height: calc(var(--vh, 1vh) * 30);
   padding: 10rem 0 3rem;
 }
 #contact .info {
@@ -406,7 +455,7 @@ section#highlights .highlight .card a {
 }
 #contact .info iframe {
   width: 100%;
-  height: 50vh;
+  height: calc(var(--vh, 1vh) * 50);
 }
 
 .main-title {
@@ -491,6 +540,7 @@ body.compensate-for-scrollbar {
     position: relative;
     transform: translateX(-0.5rem);
     opacity: 0;
+    animation: none;
     -moz-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
     -webkit-transition: all 0.3s ease;
@@ -525,7 +575,7 @@ body.compensate-for-scrollbar {
     display: block;
   }
   nav.show-menu {
-    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     width: 100vw;
   }
   nav.show-menu .links {
@@ -549,7 +599,7 @@ body.compensate-for-scrollbar {
   }
 
   #home-section {
-    height: calc(100vh - 4.2rem);
+    height: calc((var(--vh, 1vh) * 100) - 4.2rem);
   }
   #home-section .owl-carousel.home-slider {
     overflow: hidden;
@@ -564,11 +614,19 @@ body.compensate-for-scrollbar {
     line-height: 1.1;
     color: #222;
     margin: 0.5rem 0rem 1rem;
+    animation: fadeUp 0.8s ease forwards;
+    animation-delay: 0.2s;
+    position: relative;
+    opacity: 0;
   }
   #home-section .owl-carousel.home-slider .slider-item .slider-text p {
     color: #222;
     line-height: 1.2;
     font-size: 1rem;
+    animation: fadeUp 0.8s ease forwards;
+    animation-delay: 0.3s;
+    position: relative;
+    opacity: 0;
   }
   #home-section .owl-carousel.home-slider .slider-item .slider-text .subheading {
     font-size: 0.7rem;
@@ -577,6 +635,10 @@ body.compensate-for-scrollbar {
     -webkit-background-clip: unset;
     -webkit-text-fill-color: unset;
     background: none;
+    animation: fadeUp 0.8s ease forwards;
+    animation-delay: 0.1s;
+    position: relative;
+    opacity: 0;
   }
   #home-section .owl-carousel.home-slider .slider-item .slider-text .one-third {
     width: 100%;
@@ -589,6 +651,7 @@ body.compensate-for-scrollbar {
   }
   #home-section .owl-carousel.home-slider .owl-dots .owl-dot {
     background: rgba(112, 112, 112, 0.4);
+    outline: none !important;
   }
   #home-section .owl-carousel.home-slider .owl-dots .owl-dot.active {
     background: #14628e;
@@ -643,12 +706,12 @@ body.compensate-for-scrollbar {
     font-size: 0.8rem;
   }
   section#highlights .highlight .card .title {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     margin: 0.5rem 0 0.7rem;
   }
   section#highlights .highlight .card .text {
     width: 100%;
-    font-size: 1.1rem;
+    font-size: 1rem;
     line-height: 1.2;
   }
   section#highlights .highlight .card a {
@@ -697,6 +760,23 @@ body.compensate-for-scrollbar {
   }
   #products .product-list .product .name {
     font-size: 1.1rem;
+  }
+
+  #contact {
+    padding: 1rem;
+  }
+  #contact .info {
+    margin: 2rem 0;
+    grid-template-columns: auto;
+    grid-template-areas: "map" "info";
+    grid-row-gap: 2rem;
+  }
+  #contact .info > ul {
+    grid-area: info;
+  }
+  #contact .info > iframe {
+    grid-area: map;
+    height: calc(var(--vh, 1vh) * 40);
   }
 
   .main-title {
