@@ -37,13 +37,20 @@ nav .links ul li {
   text-transform: uppercase;
 }
 nav .links ul li a {
-  font-family: "Ubuntu", sans-serif;
-  color: #111;
   font-weight: 500;
+  text-transform: uppercase;
+  font-family: "Nunito Sans", sans-serif;
+}
+nav .links #quick-contact {
+  display: none;
 }
 nav #logo {
   display: inline-block;
   width: max-content;
+}
+nav #menu-trigger,
+nav #close-menu {
+  display: none;
 }
 
 .hero h3.vr {
@@ -458,14 +465,87 @@ body.compensate-for-scrollbar {
     height: 4.2rem;
   }
   nav .links {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    background: #fff;
+    padding: 1rem;
+    font-size: 1.5rem;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+  nav .links ul {
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin: 3rem 1rem;
+  }
+  nav .links ul li {
+    margin: 0 0 2rem;
+    position: relative;
+    transform: translateX(-0.5rem);
+    opacity: 0;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    transition-delay: var(--delay);
+  }
+  nav .links ul li a {
+    font-weight: 300;
+  }
+  nav .links #quick-contact {
+    display: block;
     position: absolute;
-    width: calc(100vw - 2rem);
+    bottom: 1rem;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    line-height: 1.5;
     opacity: 0;
   }
+  nav .links #quick-contact img {
+    width: 7rem;
+    margin-bottom: 0.3rem;
+  }
   nav .nav-content {
-    display: block;
+    display: flex;
     width: auto;
     padding: 1rem;
+    justify-content: space-between;
+  }
+  nav #menu-trigger {
+    width: 2rem;
+    display: block;
+  }
+  nav.show-menu {
+    height: 100vh;
+    width: 100vw;
+  }
+  nav.show-menu .links {
+    height: 100%;
+    width: 100%;
+    opacity: 1;
+    pointer-events: all;
+  }
+  nav.show-menu .links li {
+    opacity: 1;
+    transform: translateX(0rem);
+  }
+  nav.show-menu .links #close-menu {
+    position: absolute;
+    display: block;
+    right: 1rem;
+    width: 2rem;
+  }
+  nav.show-menu .links #quick-contact {
+    opacity: 1;
   }
 
   #home-section {
@@ -598,6 +678,9 @@ body.compensate-for-scrollbar {
 
   footer {
     padding: 2rem 1rem;
+  }
+  footer .info {
+    font-size: 0.8rem;
   }
 
   #products {
