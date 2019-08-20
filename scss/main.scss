@@ -462,15 +462,15 @@ body.compensate-for-scrollbar{
         top: 28%;
       }
       .slider-item .slider-text h1 {
-        font-size: 1.8rem;
+        font-size: 1.4rem;
         line-height: 1.1;
         color: #222;
-        margin: .5rem 0 1rem;
+        margin: .5rem 1rem 1rem;
       }
       .slider-item .slider-text p {
         color: #222;
         line-height: 1.2;
-        font-size: 1.1rem;
+        font-size: 1rem;
       }
       .slider-item .slider-text .subheading {
         font-size: .7rem;
@@ -494,6 +494,14 @@ body.compensate-for-scrollbar{
         &.active{
           background: #14628e;
         }
+      }
+      &.owl-drag .owl-item {
+        -ms-touch-action: auto;
+            touch-action: auto;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
       }
     }
   }
