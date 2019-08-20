@@ -473,6 +473,7 @@ body.compensate-for-scrollbar {
   }
   #home-section .owl-carousel.home-slider {
     overflow: hidden;
+    height: 100%;
   }
   #home-section .owl-carousel.home-slider .slider-item .slider-text .one-forth {
     padding: 2rem 1.5rem 0;

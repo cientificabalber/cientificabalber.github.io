@@ -455,6 +455,7 @@ body.compensate-for-scrollbar{
     height: calc(100vh - 4.2rem);
     .owl-carousel.home-slider{
       overflow: hidden;
+      height: 100%;
     }
     .owl-carousel.home-slider{
       .slider-item .slider-text .one-forth{
