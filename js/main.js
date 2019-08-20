@@ -50,10 +50,6 @@ highlights.forEach(highlight => {
   observer.observe(highlight);
 });
 
-window.addEventListener('resize', () => {
-  setVh();
-});
-
 function setVh() {
   let vh = window.innerHeight * 0.01;
   document.documentElement.style.setProperty('--vh', `${vh}px`);
