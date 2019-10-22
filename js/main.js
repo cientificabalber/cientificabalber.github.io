@@ -1,5 +1,5 @@
 $(function() {
-  $('.home-slider, .owl-carousel').owlCarousel({
+  $(".home-slider, .owl-carousel").owlCarousel({
     loop: true,
     autoplay: false,
     margin: 0,
@@ -23,11 +23,11 @@ $(function() {
     }
   });
 
-  $('#menu-trigger').click(function() {
-    $('nav').addClass('show-menu');
+  $("#menu-trigger").click(function() {
+    $("nav").addClass("show-menu");
   });
-  $('#close-menu').click(function() {
-    $('nav').removeClass('show-menu');
+  $("#close-menu").click(function() {
+    $("nav").removeClass("show-menu");
   });
 
   setVh();
@@ -37,20 +37,22 @@ const observer = new IntersectionObserver(
   (entries, observer) => {
     entries.forEach(entry => {
       if (entry.intersectionRatio > 0) {
-        entry.target.classList.add('animate');
+        entry.target.classList.add("animate");
         observer.unobserve(entry.target);
       }
     });
   },
-  { threshold: [0.3] }
+  {
+    threshold: [0.3]
+  }
 );
 
-const highlights = document.querySelectorAll('.highlight');
+const highlights = document.querySelectorAll(".highlight");
 highlights.forEach(highlight => {
   observer.observe(highlight);
 });
 
 function setVh() {
   let vh = window.innerHeight * 0.01;
-  document.documentElement.style.setProperty('--vh', `${vh}px`);
+  document.documentElement.style.setProperty("--vh", `${vh}px`);
 }

@@ -116,25 +116,24 @@ nav {
     outline: none; }
   .btn.btn-primary {
     background: #00bbfc;
-    background: -moz-linear-gradient(-45deg, #00bbfc 0%, #155983 100%);
-    background: -webkit-gradient(left top, right bottom, color-stop(0%, #00bbfc), color-stop(100%, #155983));
-    background: -webkit-linear-gradient(-45deg, #00bbfc 0%, #155983 100%);
-    background: -o-linear-gradient(-45deg, #00bbfc 0%, #155983 100%);
-    background: -ms-linear-gradient(-45deg, #00bbfc 0%, #155983 100%);
-    background: linear-gradient(135deg, #00bbfc 0%, #155983 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00bbfc', endColorstr='#155983', GradientType=1 );
+    background: -moz-linear-gradient(-45deg, #00bbfc 0%, #155983 80%);
+    background: -webkit-gradient(left top, right bottom, color-stop(0%, #00bbfc), color-stop(80%, #155983));
+    background: -webkit-linear-gradient(-45deg, #00bbfc 0%, #155983 80%);
+    background: -o-linear-gradient(-45deg, #00bbfc 0%, #155983 80%);
+    background: -ms-linear-gradient(-45deg, #00bbfc 0%, #155983 80%);
+    background: linear-gradient(135deg, #00bbfc 0%, #155983 80%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00bbfc', endColorstr='#155983', GradientType=1);
     border: 1px solid var(--main-color) !important;
-    color: #fff !important; }
+    color: #fff !important;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    background-size: 200% 100%; }
     .btn.btn-primary:hover {
       border: 1px solid var(--main-color);
-      background: #00bbfc;
-      background: -moz-linear-gradient(-45deg, #00bbfc 0%, #155983 100%);
-      background: -webkit-gradient(left top, right bottom, color-stop(0%, #00bbfc), color-stop(100%, #155983));
-      background: -webkit-linear-gradient(-45deg, #00bbfc 0%, #155983 100%);
-      background: -o-linear-gradient(-45deg, #00bbfc 0%, #155983 100%);
-      background: -ms-linear-gradient(-45deg, #00bbfc 0%, #155983 100%);
-      background: linear-gradient(135deg, #00bbfc 0%, #155983 100%);
-      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00bbfc', endColorstr='#155983', GradientType=1 );
+      background-position-x: 50%;
       color: var(--main-color); }
     .btn.btn-primary.btn-outline-primary {
       border: 2px solid var(--main-color) !important;
@@ -218,6 +217,11 @@ section#highlights {
     -webkit-transition: all 0.5s ease;
     -ms-transition: all 0.5s ease;
     transition: all 0.5s ease; }
+    @media (hover: hover) {
+      section#highlights .highlight:hover .card {
+        transform: translateY(-50%) translateX(0.5rem); }
+      section#highlights .highlight:hover img {
+        width: 70%; } }
     section#highlights .highlight.animate {
       transform: translateY(0);
       opacity: 1; }
@@ -241,7 +245,7 @@ section#highlights {
       left: 1.3rem;
       box-shadow: -4px 4px 15px 0px rgba(0, 0, 0, 0.03); }
       section#highlights .highlight:nth-child(2n) .card .circle {
-        right: 98%;
+        right: 97.5%;
         left: auto; }
     section#highlights .highlight:nth-child(2n) img {
       left: auto;
@@ -252,7 +256,12 @@ section#highlights {
       top: 0;
       object-fit: cover;
       width: 65%;
-      height: 100%; }
+      height: 100%;
+      -moz-transition: all 0.8s ease;
+      -o-transition: all 0.8s ease;
+      -webkit-transition: all 0.8s ease;
+      -ms-transition: all 0.8s ease;
+      transition: all 0.8s ease; }
     section#highlights .highlight .card {
       width: 58%;
       right: 1.3rem;
@@ -261,13 +270,23 @@ section#highlights {
       transform: translateY(-50%);
       box-shadow: 4px 4px 15px 0px rgba(0, 0, 0, 0.03);
       padding: 3rem 5rem;
-      z-index: 3; }
+      z-index: 3;
+      -moz-transition: all 0.8s ease;
+      -o-transition: all 0.8s ease;
+      -webkit-transition: all 0.8s ease;
+      -ms-transition: all 0.8s ease;
+      transition: all 0.8s ease; }
       section#highlights .highlight .card .circle {
         position: absolute;
-        left: 98%;
+        left: 97.5%;
         top: 2.4rem;
         width: 2.2rem;
-        height: auto; }
+        height: auto;
+        -moz-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+        -webkit-transition: all 0.3s ease;
+        -ms-transition: all 0.3s ease;
+        transition: all 0.3s ease; }
       section#highlights .highlight .card .title {
         font-size: 2.5rem;
         margin: 1.2rem 0 1rem; }
@@ -383,7 +402,7 @@ section#highlights {
 
 #contact {
   min-height: calc(var(--vh, 1vh) * 30);
-  padding: 10rem 0 3rem; }
+  padding: 8rem 0 3rem; }
   #contact .info {
     margin: 4rem 0;
     display: grid;
@@ -400,6 +419,21 @@ section#highlights {
     #contact .info iframe {
       width: 100%;
       height: calc(var(--vh, 1vh) * 50); }
+
+#about {
+  min-height: calc(var(--vh, 1vh) * 30);
+  padding: 8rem 0 3rem;
+  font-size: 1.2rem; }
+  #about .info {
+    margin: 4rem 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; }
+    #about .info img {
+      height: calc(var(--vh, 1vh) * 50);
+      width: 100%;
+      object-fit: cover;
+      margin-top: 2rem; }
 
 .main-title {
   font-size: 2rem;
@@ -424,7 +458,7 @@ section#highlights {
   background: -o-linear-gradient(-45deg, #00bbfc 0%, #155983 100%);
   background: -ms-linear-gradient(-45deg, #00bbfc 0%, #155983 100%);
   background: linear-gradient(135deg, #00bbfc 0%, #155983 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00bbfc', endColorstr='#155983', GradientType=1 );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00bbfc', endColorstr='#155983', GradientType=1);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; }
 
@@ -444,7 +478,7 @@ footer {
 body.compensate-for-scrollbar {
   margin: 0; }
 
-@media (max-width: 500px) {
+@media (max-width: 900px) {
   nav {
     position: relative;
     height: 4.2rem; }
@@ -521,7 +555,7 @@ body.compensate-for-scrollbar {
           opacity: 1; }
 
   #home-section {
-    height: calc((var(--vh, 1vh) * 100) - 4.2rem); }
+    height: calc((var(--vh, 1vh) * 80) - 4.2rem); }
     #home-section .owl-carousel.home-slider {
       overflow: hidden;
       height: 100%; }
@@ -582,7 +616,11 @@ body.compensate-for-scrollbar {
     margin: 3rem 1rem;
     grid-row-gap: 0rem;
     border-radius: 1rem;
-    padding: 1rem 1.5rem; }
+    padding: 1rem 1.5rem; } }
+  @media (max-width: 900px) and (min-width: 388px) {
+    section#info {
+      grid-row-gap: .5rem; } }
+@media (max-width: 900px) {
     section#info > div {
       justify-content: flex-start; }
       section#info > div img {
@@ -663,6 +701,15 @@ body.compensate-for-scrollbar {
       #contact .info > iframe {
         grid-area: map;
         height: calc(var(--vh, 1vh) * 40); }
+
+  #about {
+    padding: 1rem; }
+    #about .info {
+      margin: 2rem 0;
+      flex-direction: column-reverse; }
+      #about .info img {
+        margin: 0 0 2rem;
+        height: 30vh; }
 
   .main-title {
     font-size: 1.3rem; }
