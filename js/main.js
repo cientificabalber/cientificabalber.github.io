@@ -31,6 +31,15 @@ $(function() {
   });
 
   setVh();
+
+  $("#toggle-tips").click(function() {
+    $(this).toggleClass("active");
+    $(this)
+      .find("span")
+      .fadeToggle(100);
+    $("#tips-list").slideToggle();
+    return false;
+  });
 });
 
 const observer = new IntersectionObserver(
@@ -43,7 +52,7 @@ const observer = new IntersectionObserver(
     });
   },
   {
-    threshold: [0.3]
+    threshold: [0.2]
   }
 );
 
