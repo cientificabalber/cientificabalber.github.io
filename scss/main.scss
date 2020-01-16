@@ -262,13 +262,24 @@ section#info {
 
   &>div {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     line-height: 1.2;
 
     img {
       width: 2rem;
       margin-right: 0.8rem;
+    }
+  }
+
+  label {
+    text-transform: uppercase;
+    font-size: .85rem;
+    font-weight: 600;
+    display: block;
+
+    &:last-of-type {
+      margin-top: .5rem;
     }
   }
 }
@@ -902,7 +913,7 @@ body.compensate-for-scrollbar {
     margin: 3rem 1rem;
     grid-row-gap: 0rem;
     border-radius: 1rem;
-    padding: 1rem 1.5rem;
+    padding: 1.5rem 1.5rem 0.3rem;
 
     @media (min-width: 388px) {
       grid-row-gap: .5rem;
@@ -910,9 +921,11 @@ body.compensate-for-scrollbar {
 
     &>div {
       justify-content: flex-start;
+      align-items: center;
 
       img {
-        width: 1.5rem;
+        width: 1.7rem;
+        margin-right: 1.1rem;
       }
     }
   }
@@ -1107,6 +1120,10 @@ body.compensate-for-scrollbar {
 
   #tip-piscina {
     padding-bottom: 3rem;
+
+    @media (max-width: 900px) {
+      margin-top: 3rem;
+    }
 
     .header {
       margin: 0 1rem;
